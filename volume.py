@@ -48,7 +48,7 @@ cursor_dest = conn_dest.cursor()
 
 # Вставка результатов запроса в таблицу БД назначения
 for row in results:
-    cursor_dest.execute("INSERT INTO Volume (id, volume_bd) VALUES (%s)", (row,))
+    cursor_dest.execute("INSERT INTO Volume (id, volume_bd) VALUES (DEFAULT, %s)", (row,))
 
 # Запрос на свободное место на диске
 sql_disk_query = "SELECT pg_size_pretty(pg_tablespace_size('pg_default')) AS disk_space;"
@@ -61,10 +61,10 @@ disk_space_result = cursor.fetchone()
 end_time = datetime.now()
 
 # Вставка данных о размере дискового пространства в таблицу второй БД
-cursor_dest.execute("INSERT INTO Volume (id, volume_disk) VALUES (%s)", (disk_space_result,))
+cursor_dest.execute("INSERT INTO Volume (id, volume_disk) VALUES (DEFAULT, %s)", (disk_space_result,))
 
 # Вставка времени завершения скрипта в таблицу второй БД
-cursor_dest.execute("INSERT INTO Volume (id, date_end) VALUES (%s)", (end_time,))
+cursor_dest.execute("INSERT INTO Volume (id, date_end) VALUES (DEFAULT, %s)", (end_time,))
 
 # Подтверждение изменений и закрытие соединений
 conn_dest.commit()
