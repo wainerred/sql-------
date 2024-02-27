@@ -69,7 +69,6 @@ conn_dest = psycopg2.connect(
     port=pg_port_dest
 )
 cursor_dest = conn_dest.cursor()
-
 # Запрос на свободное место на диске
 #sql_disk_query = "SELECT pg_size_pretty(pg_tablespace_size('pg_default')) AS disk_space;"
 
@@ -97,9 +96,9 @@ free_space = int(free_space.rstrip('G'))
 #cursor_dest.execute("INSERT INTO Volume (id, date_end) VALUES (DEFAULT, %s)", (end_time,))
 
 for row in results:
-    cursor_dest.execute("INSERT INTO Volume (id, volume_bd) VALUES (DEFAULT, %s)", (row,)) # Вставка результатов запроса в таблицу БД назначения
-    cursor_dest.execute("INSERT INTO Volume (id, total_space, used_space, free_space) VALUES (DEFAULT, %s, %s, %s)", (total_space, used_space, free_space)) # Вставка информации о дисковом пространстве в базу данных
-    cursor_dest.execute("INSERT INTO Volume (id, date_end) VALUES (DEFAULT, %s)", (end_time,)) # Вставка времени завершения скрипта в таблицу второй БД
+    cursor_dest.execute("INSERT INTO Volume (id, volume_bd, total_space, used_space, free_space, date_end) VALUES (DEFAULT, %s, %s, %s, %s, %s)", (row, total_space, used_space, free_space, end_time)) # Вставка результатов запроса в таблицу БД назначения
+    #cursor_dest.execute("INSERT INTO Volume (id, total_space, used_space, free_space) VALUES (DEFAULT, %s, %s, %s)", (total_space, used_space, free_space)) # Вставка информации о дисковом пространстве в базу данных
+    #cursor_dest.execute("INSERT INTO Volume (id, date_end) VALUES (DEFAULT, %s)", (end_time,)) # Вставка времени завершения скрипта в таблицу второй БД
 
 # Подтверждение изменений и закрытие соединений
 conn_dest.commit()
