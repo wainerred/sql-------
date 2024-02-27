@@ -78,8 +78,8 @@ for row in results:
 #sql_disk_query = "SELECT pg_size_pretty(pg_tablespace_size('pg_default')) AS disk_space;"
 
 # Выполнение запроса на первой БД
-cursor.execute(sql_disk_query)
-disk_space_result = cursor.fetchone()
+#cursor.execute(sql_disk_query)
+#disk_space_result = cursor.fetchone()
 
 # Получение времени завершения SQL скрипта
 end_time = datetime.now()
