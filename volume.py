@@ -84,6 +84,11 @@ for row in results:
 # Получение времени завершения SQL скрипта
 end_time = datetime.now()
 
+# Удаляю симфол 'G'
+total_space = int(total_space.rstrip('G'))  
+used_space = int(used_space.rstrip('G'))
+free_space = int(free_space.rstrip('G'))
+
 # Вставка информации о дисковом пространстве в базу данных
 cursor_dest.execute("INSERT INTO Volume (id, total_space, used_space, free_space) VALUES (DEFAULT, %s, %s, %s)", (total_space, used_space, free_space))
 
