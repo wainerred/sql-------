@@ -11,7 +11,7 @@ pg_login_source = "repmgr"
 pg_password_source = "wainer13"
 ssh_port = 22
 ssh_username = "nlab"
-ssh_password = "CkbqUfGo"
+ssh_password = "CkbqUFGo"
 
 # Учетные данные для подключения к второй БД
 pg_host_dest = "msk-es04-app150"
