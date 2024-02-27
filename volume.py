@@ -1,6 +1,7 @@
 import psycopg2
 from psycopg2 import sql
 from datetime import datetime
+import paramiko
 
 # Учетные данные для подключения к первой БД
 pg_host_source = "msk-es04-app204"
