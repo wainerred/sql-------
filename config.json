@@ -1,0 +1,12 @@
+{
+"pg_host_source" : "msk-es04-app204",
+"pg_database_source" : "journaling2_n",
+"pg_login_source" : "repmgr",
+"pg_password_source" : "wainer13",
+"ssh_username": "nlab",
+"ssh_password": "Wainerred!#13",
+"pg_host_dest" : "msk-es04-app150",
+"pg_database_dest" : "KA",
+"pg_login_dest" : "admin",
+"pg_password_dest" : "Admin321"
+}
