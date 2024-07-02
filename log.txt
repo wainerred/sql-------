@@ -1,4 +1,8 @@
-Exception ignored in: <function BufferedFile.__del__ at 0x7f49ed954e50>
+Traceback (most recent call last):
+  File "/home/vvay001/look/sql/volume.py", line 85, in <module>
+    sql.Literal(results[1]),
+IndexError: list index out of range
+Exception ignored in: <function BufferedFile.__del__ at 0x7f1cf074ae50>
 Traceback (most recent call last):
   File "/home/vvay001/.local/lib/python3.9/site-packages/paramiko/file.py", line 67, in __del__
   File "/home/vvay001/.local/lib/python3.9/site-packages/paramiko/channel.py", line 1390, in close
